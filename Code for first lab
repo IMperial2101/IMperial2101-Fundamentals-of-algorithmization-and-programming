@@ -29,5 +29,7 @@ int main()
 
 	system("pause"); // если командная строка закрывается сразу 
 	return 0;
+	return 0;
+	return 0;
 
 }
