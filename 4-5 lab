@@ -1,0 +1,35 @@
+#include <iostream>
+#include <ctime>
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	using namespace std;
+	srand(time(NULL));
+	int zapas;
+	int mass[10];
+	
+	for (int a = 0; a < 10; a++)
+	{
+		mass[a] = rand() % 10 + 5;  // заполнение массива случайными числами от 5 до 14
+		cout << mass[a] << ", ";    // вывод массива
+	}
+	cout << "\n\n";
+	for (int b = 0; b < 10 - 1; b++) {
+		for (int c = 0; c < 10 - 1; c++) {
+			if (mass[c] > mass[c + 1]) {
+				zapas = mass[c+1];                      // Пузырёк
+				mass[c+1] = mass[c];
+				mass[c] = zapas;
+
+			}
+		}
+	}
+	
+	for (int d = 0; d < 10; d++)
+	{
+		
+		cout << mass[d] << ", ";           // вывод массива
+	}
+
+	return 0;
+}
