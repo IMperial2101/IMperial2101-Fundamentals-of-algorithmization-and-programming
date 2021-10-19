@@ -1,0 +1,69 @@
+#include <iostream>
+#include <ctime>
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    using namespace std;
+    srand(time(NULL));
+    int array[10];
+    for (int fgf = 0; fgf < 10; fgf++)
+    {
+        array[fgf] = rand() % 10 + 5;     //заполнение случайными числами 
+    }
+    for (int fgf = 0; fgf < 10; fgf++)
+    {
+        cout << array[fgf] << ",  ";   // вывод массива
+    }
+    cout << "\n\n";
+    int i, temp, step;
+
+    int n = 10;
+    float k = 1.247;
+    for (step = n - 1; step >= 1; step /= k) {
+        for (i = 0; i < n - step; i++) {
+            if (array[i] > array[i + step]) {
+                temp = array[i];
+                array[i] = array[i + step];       //сортировка рассчесткой 
+                array[i + step] = temp;
+            }
+        }
+    }
+
+    cout << "сортировка через For:\n";
+    for (int l = 0; l < 10; l++)
+    {
+        cout << array[l] << ",  ";
+    }
+    cout << "\n\n\n\n";
+    for (int fgf = 0; fgf < 10; fgf++)
+    {
+        array[fgf] = rand() % 10 + 5;     //заполнение случайными числами 
+    }
+    for (int fgf = 0; fgf < 10; fgf++)
+    {
+        cout << array[fgf] << ",  ";   // вывод массива
+    }
+    cout << "\n\n";
+   
+    step = n - 1;
+    while (step >= 1) {
+        i = 0;
+        while (i < n - step) {
+            if (array[i] > array[i + step]) {
+                temp = array[i];
+                array[i] = array[i + step];
+                array[i + step] = temp;
+            }
+            i++;
+        }
+        step /= k;
+    }
+    cout << "сортировка через while:\n";
+    for (int fgf = 0; fgf < 10; fgf++)
+    {
+        cout << array[fgf] << ",  ";   // вывод массива
+    }
+    cout << "\n";
+
+    return 0;
+}
