@@ -1,0 +1,64 @@
+#include <iostream>
+#include <stdbool.h>
+#include <ctime>
+using namespace std;
+int main()
+{
+	srand(time(NULL));
+	setlocale(LC_ALL, "ru");
+	
+    int i, j, x;
+    int n = 10;
+    int array[10];
+    
+    for ( int h = 0;  h < 10 ;  h++)
+    {
+        array[h] = rand() % 10 + 5;
+        cout << array[h] << "  ";
+    }
+
+    
+    for (int i = 0; i < 10; i++)
+    {
+        x = array[i];
+        j = i;
+        while (j > 0 && x < array[j - 1])
+        {
+            array[i] = array[i - 1];
+            j--;
+        }
+        array[j] = x;
+    }
+
+    cout << "\n";
+    for (int h = 0; h < 10; h++)
+    {
+        cout << array[h] << "  ";
+    }
+    
+    cout << "\n\n\n";
+
+    for (int h = 0; h < 10; h++)
+    {
+        array[h] = rand() % 10 + 5;
+        cout << array[h] << "  ";
+    }
+    for (int i = 0; i < 10; i++)
+    {
+        for (x = array[i], j = i; j > 0 && (array[j - 1] > x); j--)
+        {
+            array[j] = array[j - 1];
+        }
+        array[j] = x;
+    }
+
+    cout << "\n";
+    
+    for (int h = 0; h < 10; h++)
+    {
+        
+        cout << array[h] << "  ";
+    }
+	return 0;
+    cout << "\n\n\n";
+}
